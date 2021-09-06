@@ -6,8 +6,8 @@ import javafx.stage.Stage;
 
 public class CoffeeMakerApp extends Application {
 
+    private OverviewScene overviewScene = null;
     private Stage stage;
-    private Scene overviewScene;
 
     public static void main(String[] args) {
         launch(args);
