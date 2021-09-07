@@ -2,6 +2,8 @@ package coffeemachine.view;
 
 import coffeemachine.model.CoffeeMachine;
 import coffeemachine.model.drink.*;
+import coffeemachine.view.overview.OverviewScreenPane;
+import coffeemachine.view.preparation.PreparationScreenPane;
 import javafx.geometry.Pos;
 import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
@@ -31,6 +33,8 @@ public class TopPane extends HBox {
     private Tooltip tooltip = new Tooltip();
     private Drink drinkSelected;
 
+    OverviewScreenPane osp = OverviewScreenPane.getInstance();
+    PreparationScreenPane psp = PreparationScreenPane.getInstance();
 
     public TopPane() {
         initPane();
@@ -142,6 +146,11 @@ public class TopPane extends HBox {
             }
             btn.getStyleClass().add("btn-selected");
             selectedBtns.add(btn);
+
+            // update screens with selected drink label
+            drinkSelected = cm.currentState.getDrinkSelected();
+            osp.setDrinkSelectedLabel(drinkSelected.getName());
+            psp.setDrinkSelectedLabel(drinkSelected.getName());
         });
     }
 
