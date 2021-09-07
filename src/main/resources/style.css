@@ -94,3 +94,13 @@
 HBox {
     -fx-alignment: center;
 }
+
+.progress-bar .bar{
+    -fx-background-color: #cccccc;
+    -fx-padding: 10px;
+    -fx-background-insets: 0, 1, 2;
+}
+
+.progress-bar .track{
+    -fx-background-color: #2d2d2d;
+}
