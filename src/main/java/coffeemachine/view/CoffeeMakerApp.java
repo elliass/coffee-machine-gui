@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 public class CoffeeMakerApp extends Application {
 
     private OverviewScene overviewScene = null;
+    private PreparationScene preparationScene = null;
     private Stage stage;
 
     public static void main(String[] args) {
@@ -23,6 +24,22 @@ public class CoffeeMakerApp extends Application {
     }
 
     private Scene getOverviewScene() {
+        if (overviewScene == null) {
+            overviewScene = new OverviewScene();
+            overviewScene.addEventFilter(CustomEvent.GO_TO_PREPARATION_SCENE, event -> {
+                stage.setScene(getPreparationScene());
+            });
+        }
         return overviewScene;
+    }
+
+    private PreparationScene getPreparationScene() {
+        if (preparationScene == null) {
+            preparationScene = new PreparationScene();
+            preparationScene.addEventFilter(CustomEvent.GO_TO_OVERVIEW_SCENE, event -> {
+                stage.setScene(getOverviewScene());
+            });
+        }
+        return preparationScene;
     }
 }
