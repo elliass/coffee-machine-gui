@@ -9,6 +9,7 @@ public class CoffeeMakerApp extends Application {
     private OverviewScene overviewScene = null;
     private PreparationScene preparationScene = null;
     private MaintenanceScene maintenanceScene = null;
+    private IssueScene issueScene = null;
     private Stage stage;
 
     public static void main(String[] args) {
@@ -29,6 +30,10 @@ public class CoffeeMakerApp extends Application {
             overviewScene = new OverviewScene();
             overviewScene.addEventFilter(CustomEvent.GO_TO_PREPARATION_SCENE, event -> {
                 stage.setScene(getPreparationScene());
+            });
+
+            overviewScene.addEventFilter(CustomEvent.GO_TO_ISSUE_SCENE, event -> {
+                stage.setScene(getIssueScene());
             });
 
             overviewScene.addEventFilter(CustomEvent.GO_TO_MAINTENANCE_SCENE, event -> {
@@ -56,5 +61,15 @@ public class CoffeeMakerApp extends Application {
             });
         }
         return maintenanceScene;
+    }
+
+    private IssueScene getIssueScene() {
+        if (issueScene == null) {
+            issueScene = new IssueScene();
+            issueScene.addEventFilter(CustomEvent.GO_TO_OVERVIEW_SCENE, event -> {
+                stage.setScene(getOverviewScene());
+            });
+        }
+        return issueScene;
     }
 }
