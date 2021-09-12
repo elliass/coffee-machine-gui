@@ -104,3 +104,30 @@ HBox {
 .progress-bar .track{
     -fx-background-color: #2d2d2d;
 }
+
+.list-view{
+    -fx-pref-width: 420px;
+    -fx-pref-height: 50px;
+    -fx-padding: 0px;
+    -fx-focus-color: transparent;
+    -fx-orientation: horizontal;
+    -fx-alignment: top-center;
+    -fx-background-color: transparent;
+}
+
+.list-cell{
+    -fx-background-color: #2d2d2d;
+    -fx-border-color: #404040;
+    -fx-border-width: 0px 0px 1px 0px;
+    -fx-pref-width: 104px;
+    -fx-text-fill: #cccccc;
+    -fx-padding: 0px;
+    -fx-wrap-text: true;
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+}
+
+.list-cell:filled:hover, .list-cell:filled:selected{
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #ffffff;
+}
